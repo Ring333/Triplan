@@ -16,6 +16,9 @@
         </controllerFile>
         <controllerFile controllerName="Idea">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="creat"/>
+          <actionMethod actionName="create"/>
+          <actionMethod actionName="edit"/>
         </controllerFile>
         <controllerFile controllerName="Program">
           <actionMethod actionName="index"/>
@@ -49,6 +52,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Program">
             <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Idea">
+            <viewScriptFile forActionName="creat"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Idea">
+            <viewScriptFile forActionName="create"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Idea">
+            <viewScriptFile forActionName="edit"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
