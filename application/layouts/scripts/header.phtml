@@ -1,29 +1,33 @@
 <!DOCTYPE html>
-<html> 
-<head> 
-<title>Triplan--help you plan your amazing trips!</title>
-<link rel="stylesheet" href="/css/jquery-ui.css">
-<script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
-<script type="text/javascript" src="/js/jquery-ui.js"></script>
-<script type="text/javascript" src="/js/list.js"></script>
-<link rel="stylesheet" type="text/css" href="/css/viewer.css">
-<link rel="stylesheet" type="text/css" href="/css/latin.css">
-<link rel="stylesheet" type="text/css" href="/css/form.css">
-<link rel="stylesheet" type="text/css" href="/css/idea.css">
-<script type="text/javascript">
-	$( function() {
-    $( ".datepicker" ).datepicker();
-    $("#cr_idea").click(gotoedit)
-  } );
-	function gotoedit()
-	{
-		window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val() + "&dest=" + $("#dest").val();
-	}
-</script>
+<html>
+
+<head>
+  <title>Triplan--help you plan your amazing trips!</title>
+
+  <link rel="stylesheet" type="text/css" href="/css/viewer.css">
+  <link rel="stylesheet" type="text/css" href="/css/latin.css">
+  <link rel="stylesheet" type="text/css" href="/css/form.css">
+
+  <script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
+  <script type="text/javascript" src="/js/list.js"></script>
+
+  <script type="text/javascript">
+    $( function() {
+      $( ".datepicker" ).datepicker();
+      $("#cr_idea").click(gotoedit)
+    } );
+
+    function gotoedit()
+    {
+      window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val() + "&dest=" + $("#dest").val();
+    }
+  </script>
+
 </head>
+
 <header>
-<div class="upper">
-<a class="authen">Login</a>
-<a class="authen">Signup</a>
-</div>
+  <div class="upper">
+    <a class="authen">Sign up</a>
+    <a class="authen">Sign in</a>
+  </div>
 </header>
