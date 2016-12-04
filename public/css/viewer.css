@@ -54,11 +54,26 @@ body {
   overflow-y: scroll;
 }
 
+/* used by multiple pages */
+
 .bg_main {
   background: url(../images/background.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
+.authen {
+    float:right;
+    padding-top:10px;
+    padding-right: 15px;
+}
+
+.upper {
+    background-color: rgba(230,230,230,0.3);
+    height: 40px;
+}
+
+
+/* in reserve */
 
 .wixSiteProperties {
   -webkit-font-smoothing: antialiased;

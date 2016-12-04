@@ -13,10 +13,11 @@
         <controllerFile controllerName="Error"/>
         <controllerFile controllerName="User">
           <actionMethod actionName="index"/>
+          <actionMethod actionName="signup"/>
+          <actionMethod actionName="signin"/>
         </controllerFile>
         <controllerFile controllerName="Idea">
           <actionMethod actionName="index"/>
-          <actionMethod actionName="creat"/>
           <actionMethod actionName="create"/>
           <actionMethod actionName="edit"/>
         </controllerFile>
@@ -61,6 +62,12 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Idea">
             <viewScriptFile forActionName="edit"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="signup"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="login"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
