@@ -47,16 +47,16 @@ a {
 
 html, body {
   height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
 body {
   overflow-x: auto;
   overflow-y: scroll;
+}
+
+.bg_main {
   background: url(../images/background.jpg) no-repeat center center fixed;
+  background-size: cover;
 }
 
 

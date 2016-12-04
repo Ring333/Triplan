@@ -13,6 +13,27 @@ class IdeaController extends Zend_Controller_Action
         // action body
     }
 
+    public function creatAction()
+    {
+        // action body
+    }
+
+    public function createAction()
+    {
+        // action body
+    }
+
+    public function editAction()
+    {
+        // action body
+    }
+
 
 }
+
+
+
+
+
+
 
