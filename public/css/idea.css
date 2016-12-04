@@ -1,0 +1,53 @@
+.upper
+{
+	height:40px;
+	background-color: rgba(230,230,230,0.4);
+}
+.authen
+{
+	float: right;
+	padding-right: 15px;
+	padding-top: 10px;
+}
+.create-form
+{
+	margin-left: auto;
+	margin-right: auto;
+	width:50%;
+}
+.datepicker
+{
+	width:70px;
+}
+.block
+{
+	width:30%;
+	margin:20px;
+	height:80%;
+	background-color: rgba(230,230,230,0.4);
+	float:left;
+	border-radius: 8px;
+}
+.wblock
+{
+	margin:auto;
+	width:98%;
+	height:98%;
+	background-color: rgba(255,255,255,0.8);
+	border-radius: 8px;
+	margin-top: 5px;
+}
+input
+{
+	margin-right: 2px;
+	padding:3px;
+}
+label
+{
+	padding:5px;
+}
+#cr_idea
+{
+	margin-left: 5px;
+	padding:2px;
+}

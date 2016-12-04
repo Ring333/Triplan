@@ -157,31 +157,3 @@ input:-moz-placeholder {
         to(#b9c5dd));
 }
 
-.create
-{
-    margin: auto;
-    width: 50%;
-}
-.authen
-{
-    float:right;
-    padding-top:10px;
-    padding-right: 15px;
-}
-.datepicker
-{
-    width:80px;
-}
-.caption
-{
-    padding:8px;
-}
-.cr_idea
-{
-    margin:15px;
-}
-.upper
-{
-    background-color: rgba(230,230,230,0.3);
-    height: 40px;
-}

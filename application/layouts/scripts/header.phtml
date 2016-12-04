@@ -9,10 +9,16 @@
 <link rel="stylesheet" type="text/css" href="/css/viewer.css">
 <link rel="stylesheet" type="text/css" href="/css/latin.css">
 <link rel="stylesheet" type="text/css" href="/css/form.css">
+<link rel="stylesheet" type="text/css" href="/css/idea.css">
 <script type="text/javascript">
 	$( function() {
     $( ".datepicker" ).datepicker();
+    $("#cr_idea").click(gotoedit)
   } );
+	function gotoedit()
+	{
+		window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val() + "&dest=" + $("#dest").val();
+	}
 </script>
 </head>
 <header>
