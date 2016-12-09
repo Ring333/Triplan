@@ -20,11 +20,16 @@ class IdeaController extends Zend_Controller_Action
 
     public function editAction()
     {
+        
         $request = $this->getRequest();
         $sdate = $request->getParam("sdate");
         $edate = $request->getParam("edate");
-        $dest = strtolower($request->getParam("dest"));
-        echo $edate.'   '.$sdate;
+        $dest = $request->getParam("dest");
+        $source = $request->getParam("source");
+        $this->view->sdate = date_create_from_format('Y-m-d', $sdate);
+        $this->view->edate = date_create_from_format('Y-m-d', $edate);
+        $this->view->source=$source;
+        $this->view->dest=$dest;
     }
 
 

@@ -1,15 +1,56 @@
+<script type="text/javascript">
+
+onload=function(){
+                var lis = document.querySelectorAll("li");
+                for(var i = 0; i < lis.length; i++)
+                {
+                    lis[i].onclick = function ()
+                    {
+                        this.style.display = "none";
+                    }
+                }
+            }
+
+</script>
 <body class="bg_main">
-<div class="block">
+<div class="block" id="bfirst">
 <div class="wblock">
+<ul id="idea_cal">
+<?
+for($i=$this->sdate,$c=0;
+	($i->getTimestamp())<($this->edate->getTimestamp());
+	$i->add(new DateInterval('P1D')),$c++) {
+?>
+
+<li>
+<div class="round">
+<div class="pad">
+<var><? echo "D".($c+1); ?></var>
+</div>
+</div>
+<var><? echo $i->format('Y-m-d'); ?></var><br>
+<var class="sd"><? 
+if ($c==0) { echo $this->source."->".$this->dest;} 
+else if($i->getTimestamp()+86400==$this->edate->getTimestamp()) {echo $this->dest."->".$this->source;}
+else {echo $this->dest;}
+?></var>
+</li>
+
+<?
+}
+?>
+</ul>
 </div>
 </div>
 
-<div class="block">
+<div class="block" id="bsecond">
 <div class="wblock">
+
+
 </div>
 </div>
 
-<div class="block">
+<div class="block" id="bthird">
 <div class="wblock">
 </div>
 </div>

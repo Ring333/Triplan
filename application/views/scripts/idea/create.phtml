@@ -1,3 +1,21 @@
+<script type="text/javascript">
+    $( function() {
+      $( ".datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
+      $("#cr_idea").click(gotoedit)
+    } );
+
+    function gotoedit()
+    {
+      if ($("#sdate").val()>=$("#edate").val())
+      {
+        alert("End date must be later than start date");
+      }
+      else
+      {
+      window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val()+ "&source=" + $("#source").val() + "&dest=" + $("#dest").val();
+      }
+    }
+  </script>
 <body class="bg_main">
 <h2></h2>
 <br /><br />
@@ -7,6 +25,8 @@
 	<input type="text" class="datepicker" id="sdate"/>
 	<label class="caption">end date</label>
 	<input type="text" class="datepicker"  id="edate"/>						
+	<label class="caption">source</label>
+	<input type="text" id="source"/>
 	<label class="caption">destination</label>
 	<input type="text" id="dest"/>
 	<input id="cr_idea" type="button" value="Create" />
