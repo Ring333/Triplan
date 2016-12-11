@@ -8,27 +8,31 @@
 .block
 {
 	margin:20px;
-	height:80%;
+	height:auto;
 	background-color: rgba(230,230,230,0.4);
 	float:left;
 	border-radius: 8px;
+	overflow-y: scroll;
+
 }
 #bfirst
 {
-	width:25%;
-	height: auto;
+	width:20%;
 	min-height: 100px;
-	max-height: 80%;
-	overflow-y: scroll;
+	max-height: 70%;
 
 }
 #bsecond
 {
 	width:30%;
+	min-height: 200px;
+	max-height: 80%;
 }
 #bthird
 {
-	width:35%;
+	min-height: 300px;
+	max-height: 85%;
+	width:40%;
 }
 
 .wblock
@@ -55,13 +59,17 @@ label
 	margin-left: 3px;
 	padding:2px;
 }
-#idea_cal li
+#idea_cal li,#idea_place li.pl
 {
 	padding: 15px;
 	box-shadow: 2px 2px 2px gray;
 	border-radius: 5px;
 	min-height: 40px;
-	max-height:80%;
+	
+}
+#idea_place li.pl
+{
+	height:150px;
 }
 #idea_cal li:hover
 {
@@ -70,6 +78,7 @@ label
 
 var
 {
+	font-style: normal;
 	font-size: 11px;
 	padding-left: 20px;
 }
@@ -106,7 +115,38 @@ var
 }
 .sd
 {
-	
-	font-size: 17px;
+	font-style: normal;
+	font-size: 15px;
 	padding-top:30px;
+}
+.picture
+{
+	float:left;
+	max-height: 150px;
+}
+img.place
+{
+	max-height: 150px;
+	width:200px;
+	overflow-y: hidden;
+	border-radius: 13px;
+	box-shadow: 3px 3px 5px gray;
+}
+.descr
+{
+	width:200px;
+	float:left;
+	padding-right:15px;
+	padding-left: 18px;
+	padding-top:4px;
+}
+.descr p
+{
+	
+	font-style: normal;
+}
+.name
+{
+	font-weight: bold;
+	font-size: 16px;
 }

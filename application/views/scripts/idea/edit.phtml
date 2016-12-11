@@ -6,10 +6,17 @@ onload=function(){
                 {
                     lis[i].onclick = function ()
                     {
-                        this.style.display = "none";
+                        alert(this.firstChild.nextSibling.nextSibling.nextSibling.innerHTML);
                     }
                 }
             }
+
+
+ $( function() {
+      $('.rating').barrating({
+        theme: 'css-stars'
+      });
+});
 
 </script>
 <body class="bg_main">
@@ -46,12 +53,33 @@ else {echo $this->dest;}
 <div class="block" id="bsecond">
 <div class="wblock">
 
-
 </div>
 </div>
 
 <div class="block" id="bthird">
 <div class="wblock">
+<ul id="idea_place">
+<?
+foreach ($this->xml->result as $result)
+{?>
+<li class="pl">
+<?  echo  floatval($result->rating)*10.0%5+1; ?>
+<div class="picture">
+<img class="place" src="<? echo "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=".$result->photo->photo_reference."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ" ?>" alt="pic">
+</div>
+<div class="descr">
+<p class="name"><? echo $result->name."<br>";  ?></p>
+<select class="rating">
+  <? for ($i=0;$i<5;$i++){ ?>
+  <option value="<? echo $i+1; ?>" <? if($i+1==floatval($result->rating)*10.0%5+1) echo "selected=\"selected\""; ?> ><? echo $i+1; ?></option>
+  <? } ?>
+</select>
+</div>
+</li>
+<?
+}
+?>
+</ul>
 </div>
 </div>
 

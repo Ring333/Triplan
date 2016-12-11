@@ -3,18 +3,30 @@
       $( ".datepicker" ).datepicker({dateFormat: "yy-mm-dd"});
       $("#cr_idea").click(gotoedit)
     } );
-
+    Date.prototype.addDays = function(days)
+	{
+	    var dat = new Date(this.valueOf());
+	    dat.setDate(dat.getDate() + days);
+	    return dat;
+	}
     function gotoedit()
     {
+      var sdate=new Date($("#sdate").val());
+      var edate=new Date($("#edate").val());
       if ($("#sdate").val()>=$("#edate").val())
       {
         alert("End date must be later than start date");
       }
+      else if (sdate.addDays(30)<edate)
+      {
+      	alert("Trip duration should be less than 30 days");
+      }
       else
       {
-      window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val()+ "&source=" + $("#source").val() + "&dest=" + $("#dest").val();
+      window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val()+ "&source=" + $("#source").val() + "&dest=" + $("#dest").val() + "&new=true";
       }
     }
+    
   </script>
 <body class="bg_main">
 <h2></h2>
