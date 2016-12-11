@@ -11,7 +11,7 @@
         });
          $('#signup').ajaxForm({
             success: function(){
-                alert("Welcome user!");
+                alert("Welcome! $_POST['email']!");
                 window.location.replace('http://triplan.com')
             },
             error: function(){
