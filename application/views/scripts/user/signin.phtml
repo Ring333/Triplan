@@ -7,9 +7,9 @@
             }
         });
          $('#signup').ajaxForm({
-            success: function(){
-                alert("Welcome! $_POST['email']!");
-                window.location.replace('http://triplan.com')
+            success: function(data){
+                alert("Welcome, " + data + "!" );
+                window.location.replace('http://triplan.com');
             },
             error: function(){
                 alert("Invalid email or password!");

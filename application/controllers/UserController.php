@@ -35,6 +35,8 @@ class UserController extends Zend_Controller_Action
         if ($this->getRequest()->isPost()) {
             $user = new Application_Model_UserMapper();
             $user->signin_check();
+
+            exit;
         }
     }
 
