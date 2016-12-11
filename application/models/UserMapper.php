@@ -3,6 +3,74 @@
 class Application_Model_UserMapper
 {
 
+    protected $servername = "localhost";
+    protected $username = "root";
+    protected $password = "";
+    protected $dbname = "triplan";
+
+    protected $log = "/var/tmp/triplan.log";
+
+
+    public function signup_save()
+    {
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $firstname = $_POST['firstname'];
+        $lastname = $_POST['lastname'];
+
+        // Create connection
+        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        // Check connection
+        if ($conn->connect_error) {
+          die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "INSERT INTO users (email, password, firstname, lastname)
+        VALUES ( '$email', '$password', '$firstname', '$lastname')";
+
+        if ($conn->query($sql) === TRUE) {
+            header("HTTP/1.1 200 OK");
+            error_log("Info: signup sucess!\n", 3, $this->log);
+        } else {
+            header("HTTP/1.1 500 Internal Server Error");
+            error_log("Error: insert fails\n" . $sql . $conn->error. "\n", 3, $this->log);
+        }
+
+        $conn->close();
+    }
+
+
+    public function signin_check(){
+
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+
+        // Create connection
+        $conn = new mysqli($this->servername, $this->username, $this->password, $this->dbname);
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+
+        $sql = "SELECT user_id, firstname, lastname FROM users
+                WHERE email='$email' AND password='$password'";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+            // Login
+            session_start();
+            $_SESSION['loggedin'] = true;
+
+            header("HTTP/1.1 200 OK");
+            error_log("Info: login sucess!\n", 3, $this->log);
+        } else {
+            // Failed!
+            header("HTTP/1.1 404 Not Found");
+            error_log("Error: not match found". $email. $password. $result . "\n", 3, $this->log);
+        }
+
+        $conn->close();
+    }
 
 }
 

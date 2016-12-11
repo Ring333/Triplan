@@ -1,8 +1,38 @@
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#signup").validate({
+            rules: {
+                firstname: "required",
+                lastname: "required",
+                email: "required",
+                password: "required",
+                checky:"required",
+                confirm_password: {
+                    required: true,
+                    equalTo: "#password"
+                }
+            }
+        });
+        $('#signup').ajaxForm({
+            success: function(){
+                alert("Sign up succeed! Please sign in now");
+                window.location.replace('signin')
+            },
+            error: function(){
+                alert("Sign up failed, please try again");
+            }
+        });
+});
+</script>
+
+
 <br /><br />
 <body class="bg_main">
     <div class="container">
-
-        <form id="signup">
+        <form id="signup" method="post">
 
             <div class="header">
                 <h3>Sign Up</h3>
@@ -12,22 +42,20 @@
             <div class="sep"></div>
 
             <div class="inputs">
-
-                <input type="email" placeholder="E-mail" autofocus />
-                <input type="password" placeholder="Password" />
-                <input type="text" placeholder="First name" />
-                <input type="text" placeholder="Last name" />
+                <input type="email" id="email" name="email" placeholder="E-mail" autofocus /> <br/>
+                <input type="password" id="password" name="password" placeholder="Password" /> <br/>
+                <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm_password" /> <br/>
+                <input type="name" name="firstname" placeholder="First name" /> <br/>
+                <input type="name" name="lastname" placeholder="Last name" /> <br/>
 
                 <div class="checkboxy">
                     <input name="checky" id="checky" value="1" type="checkbox" /><label class="terms">I accept the terms of use</label>
                 </div>
 
-                <a id="submit" href="#">SIGN UP NOW</a>
-
+                <input id="submit" type="submit" value="SIGN UP NOW"></input>
             </div>
 
         </form>
-
     </div>
 </body>
 ​
