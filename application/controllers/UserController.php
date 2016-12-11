@@ -21,17 +21,21 @@ class UserController extends Zend_Controller_Action
         $request = $this->getRequest();
 
         if ($this->getRequest()->isPost()) {
-
             $user = new Application_Model_UserMapper();
-            $user->signup();
-
-            return $this->_helper->redirector('signin');
+            $user->signup_save();
+            //return $this->_helper->redirector('signin');
         }
     }
 
     public function signinAction()
     {
         // action body
+        $request = $this->getRequest();
+
+        if ($this->getRequest()->isPost()) {
+            $user = new Application_Model_UserMapper();
+            $user->signin_check();
+        }
     }
 
 }

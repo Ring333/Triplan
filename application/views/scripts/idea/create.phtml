@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    if(!IsSet($_SESSION['loggedin']) or $_SESSION['loggedin'] != true)
+    {
+        header("location: http://triplan.com/user/signin");
+    }
+?>
+
+
 <body class="bg_main">
 <h2></h2>
 <br /><br />
@@ -6,7 +15,7 @@
 	<label class="caption">start date</label>
 	<input type="text" class="datepicker" id="sdate"/>
 	<label class="caption">end date</label>
-	<input type="text" class="datepicker"  id="edate"/>						
+	<input type="text" class="datepicker"  id="edate"/>
 	<label class="caption">destination</label>
 	<input type="text" id="dest"/>
 	<input id="cr_idea" type="button" value="Create" />

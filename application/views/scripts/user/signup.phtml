@@ -1,4 +1,5 @@
 <script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
 
 <script>
     $(document).ready(function() {
@@ -15,13 +16,23 @@
                 }
             }
         });
+        $('#signup').ajaxForm({
+            success: function(){
+                alert("Welcome!");
+                window.location.replace('signin')
+            },
+            error: function(){
+                alert("Sign up failed, please try again");
+            }
+        });
 });
 </script>
+
 
 <br /><br />
 <body class="bg_main">
     <div class="container">
-        <form id="signup" action="signup" method="post">
+        <form id="signup" method="post">
 
             <div class="header">
                 <h3>Sign Up</h3>
@@ -34,8 +45,8 @@
                 <input type="email" id="email" name="email" placeholder="E-mail" autofocus /> <br/>
                 <input type="password" id="password" name="password" placeholder="Password" /> <br/>
                 <input type="password" id="confirm_password" name="confirm_password" placeholder="confirm_password" /> <br/>
-                <input type="text" name="firstname" placeholder="First name" /> <br/>
-                <input type="text" name="lastname" placeholder="Last name" /> <br/>
+                <input type="name" name="firstname" placeholder="First name" /> <br/>
+                <input type="name" name="lastname" placeholder="Last name" /> <br/>
 
                 <div class="checkboxy">
                     <input name="checky" id="checky" value="1" type="checkbox" /><label class="terms">I accept the terms of use</label>

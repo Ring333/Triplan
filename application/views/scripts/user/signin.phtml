@@ -1,8 +1,31 @@
+<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
+<script src="http://malsup.github.com/jquery.form.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#signup").validate({
+            rules: {
+                email: "required",
+                password: "required",
+            }
+        });
+         $('#signup').ajaxForm({
+            success: function(){
+                alert("Welcome user!");
+                window.location.replace('http://triplan.com')
+            },
+            error: function(){
+                alert("Invalid email or password!");
+            }
+        });
+});
+</script>
+
+
 <br /><br />
 <body class="bg_main">
     <div class="container">
-
-        <form id="signup">
+        <form id="signup" method="post"> <!--use same css as signup form -->
 
             <div class="header">
                 <h3>Sign In</h3>
@@ -12,21 +35,18 @@
             <div class="sep"></div>
 
             <div class="inputs">
-
-                <input type="email" placeholder="E-mail" autofocus />
-                <input type="password" placeholder="Password" />
+                <input type="email" id="email" name="email" placeholder="E-mail" autofocus /> <br/>
+                <input type="password" id="password" name="password" placeholder="Password" /> <br/>
 
                 <div class="checkboxy">
                     <input name="checky" id="checky" value="1" type="checkbox" /><label class="terms">Remember me</label>
                 </div>
 
                 <input id="submit" type="submit" value="SIGN IN"></input>
-                <a href="#" class = "link">No account? Sign up for free now!</a>
-
+                <a class="link" href="signup">No account? Sign up for free now!</a>
             </div>
 
         </form>
-
     </div>
 </body>
 ​
