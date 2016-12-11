@@ -3,6 +3,8 @@
 class UserController extends Zend_Controller_Action
 {
 
+    protected $log = "/var/tmp/triplan.log";
+
     public function init()
     {
         /* Initialize action controller here */
@@ -16,6 +18,15 @@ class UserController extends Zend_Controller_Action
     public function signupAction()
     {
         // action body
+        $request = $this->getRequest();
+
+        if ($this->getRequest()->isPost()) {
+
+            $user = new Application_Model_UserMapper();
+            $user->signup();
+
+            return $this->_helper->redirector('signin');
+        }
     }
 
     public function signinAction()
@@ -23,8 +34,8 @@ class UserController extends Zend_Controller_Action
         // action body
     }
 
-
 }
+
 
 
 

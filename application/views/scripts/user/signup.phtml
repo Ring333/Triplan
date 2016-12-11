@@ -8,6 +8,7 @@
                 lastname: "required",
                 email: "required",
                 password: "required",
+                checky:"required",
                 confirm_password: {
                     required: true,
                     equalTo: "#password"
@@ -17,12 +18,10 @@
 });
 </script>
 
-
 <br /><br />
 <body class="bg_main">
     <div class="container">
-
-        <form id="signup">
+        <form id="signup" action="signup" method="post">
 
             <div class="header">
                 <h3>Sign Up</h3>
@@ -42,12 +41,10 @@
                     <input name="checky" id="checky" value="1" type="checkbox" /><label class="terms">I accept the terms of use</label>
                 </div>
 
-                <a id="submit" href="#">SIGN UP NOW</a>
-
+                <input id="submit" type="submit" value="SIGN UP NOW"></input>
             </div>
 
         </form>
-
     </div>
 </body>
 ​
