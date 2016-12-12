@@ -3,7 +3,7 @@
 class UserController extends Zend_Controller_Action
 {
 
-    protected $log = "/var/tmp/triplan.log";
+    protected $log = '/var/tmp/triplan.log';
 
     public function init()
     {
@@ -24,7 +24,10 @@ class UserController extends Zend_Controller_Action
             $user = new Application_Model_UserMapper();
             $user->signup_save();
             //return $this->_helper->redirector('signin');
+            exit;
         }
+
+        error_log("sign out\n", 3, $this->log );
     }
 
     public function signinAction()
@@ -40,7 +43,20 @@ class UserController extends Zend_Controller_Action
         }
     }
 
+    public function signoutAction()
+    {
+        // action body
+        session_start();
+        session_destroy();
+        $_SESSION['loggedin'] = false;
+
+        echo "Sign out succeed!";
+        exit;
+    }
+
 }
+
+
 
 
 

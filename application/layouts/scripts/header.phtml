@@ -22,6 +22,20 @@
 
 <header>
 
+<script>
+    $(document).ready(function() {
+     $("#signout").click(function() {
+        $.ajax({
+            url: "<?php echo $this->baseUrl('user/signout'); ?>",
+            success: function(data){
+            alert(data);
+            location.reload();
+            }
+        });
+    });
+});
+</script>
+
 <?php
     session_start();
     if(!IsSet($_SESSION['loggedin']) or $_SESSION['loggedin'] != true)
@@ -33,7 +47,7 @@
     <?php }
     else {?>
       <div class="upper">
-        <a class="authen" herf="">Sign out</a>
+        <a class="authen" id="signout">Sign out</a>
         <a class="authen" href="http://triplan.com/user/signin">My Account</a>
     <?php } ?>
         <a class="authen" href="http://triplan.com">Ideas</a>
