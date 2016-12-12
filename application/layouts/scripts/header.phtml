@@ -9,18 +9,18 @@
   <link rel="stylesheet" type="text/css" href="/css/form.css">
   <link rel="stylesheet" type="text/css" href="/css/idea.css">
   <link rel="stylesheet" type="text/css" href="/css/css-stars.css">
-  <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+  <link rel="stylesheet" type="text/css" href="/css/tab.css">
 
   <script type="text/javascript" src="/js/jquery-3.1.1.js"></script>
-  <script type="text/javascript" src="/js/jquery-ui.js"></script>
-  <script type="text/javascript" src="/js/jquery.barrating.min.js"></script>
 
+  <script type="text/javascript" src="/js/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+
+  <script type="text/javascript" src="/js/jquery.barrating.min.js"></script>
   <script type="text/javascript" src="/js/jquery.validate.js"></script>
   <script type="text/javascript" src="/js/jquery.form.js"></script>
 
 </head>
-
-<header>
 
 <script>
     $(document).ready(function() {
@@ -29,6 +29,7 @@
             url: "<?php echo $this->baseUrl('user/signout'); ?>",
             success: function(data){
               alert(data);
+              swal(data);
               location.reload();
             }
         });
@@ -36,6 +37,7 @@
 });
 </script>
 
+<header>
 <?php
     if (!isset($_SESSION)){
         session_start();
@@ -50,7 +52,7 @@
     <?php }
     else {?>
       <div class="upper">
-        <a class="authen" id="signout" href="">Sign out</a>
+        <a class="authen" id="signout" href="#">Sign out</a>
         <a class="authen" href="http://triplan.com/user/viewinfo">My Account</a>
     <?php } ?>
         <a class="authen" href="http://triplan.com">Ideas</a>

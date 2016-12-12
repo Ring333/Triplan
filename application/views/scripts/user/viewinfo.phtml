@@ -1,16 +1,18 @@
-  <!--<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">-->
-  <!--<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
-  <!--<link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css">-->
+<?php
+    session_start();
+    if(!IsSet($_SESSION['loggedin']) or $_SESSION['loggedin'] != true)
+    {
+        header("location: http://triplan.com/user/signin");
+    }
+?>
 
-  <link rel="stylesheet" type="text/css" href="/css/tab.css">
+<script type="text/javascript">
+$( function() {
+  $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+  $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+} );
+</script>
 
-  <script>
-  $( function() {
-    $( "#tabs" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
-    $( "#tabs li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-  } );
-  </script>
 
 <br /><br />
 <body class="bg_main">
@@ -26,7 +28,7 @@
     <ul>
       <li><a href="#tabs-1">User Info</a></li>
       <li><a href="#tabs-2">Change Password</a></li>
-      <li><a href="#tabs-3">My ideas</a></li>
+      <li><a href="#tabs-3">My Ideas</a></li>
     </ul>
     <div id="tabs-1">
       <h2>Content heading 1</h2>
