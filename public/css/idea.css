@@ -58,6 +58,7 @@ label
 {
 	margin-left: 3px;
 	padding:2px;
+	font-size: 14px;
 }
 #idea_cal li,#idea_place li.pl
 {
@@ -65,7 +66,7 @@ label
 	box-shadow: 2px 2px 2px gray;
 	border-radius: 5px;
 	min-height: 40px;
-	
+
 }
 #idea_place li.pl
 {
@@ -156,7 +157,7 @@ img.place
 }
 .pinfo p
 {
-	
+
 	font-style: normal;
 }
 .name

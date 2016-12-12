@@ -1,6 +1,3 @@
-<script type="text/javascript" src="http://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.js"></script>
-<script src="http://malsup.github.com/jquery.form.js"></script>
-
 <script>
     $(document).ready(function() {
         $("#signup").validate({
@@ -10,9 +7,9 @@
             }
         });
          $('#signup').ajaxForm({
-            success: function(){
-                alert("Welcome! $_POST['email']!");
-                window.location.replace('http://triplan.com')
+            success: function(data){
+                alert("Welcome, " + data + "!" );
+                window.location.replace('http://triplan.com/idea/create');
             },
             error: function(){
                 alert("Invalid email or password!");
@@ -24,11 +21,11 @@
 
 <br /><br />
 <body class="bg_main">
-    <div class="container">
-        <form id="signup" method="post"> <!--use same css as signup form -->
+    <div class="form_container">
 
+        <form id="signup" method="post"> <!--use same css as signup form -->
             <div class="header">
-                <h3>Sign In</h3>
+                <h3>Please Sign In To Continue</h3>
                 <p>Please fill out this form</p>
             </div>
 
@@ -45,8 +42,8 @@
                 <input id="submit" type="submit" value="SIGN IN"></input>
                 <a class="link" href="signup">No account? Sign up for free now!</a>
             </div>
-
         </form>
+
     </div>
 </body>
 ​
