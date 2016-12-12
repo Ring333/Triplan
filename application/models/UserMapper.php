@@ -58,17 +58,18 @@ class Application_Model_UserMapper
 
         if ($result->num_rows > 0) {
             // success
-            session_start();
-            $_SESSION['loggedin'] = true;
-
             $row=$result->fetch_assoc();
             $firstname = $row['firstname'];
             $lastname = $row['lastname'];
+            $user_id = $row['user_id'];
             echo $firstname . " " . $lastname;
 
-            error_log("Info:". $firstname. $lastname. "\n", 3, $this->log);
-
             header("HTTP/1.1 200 OK");
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['user_id'] = $user_id;
+
+            error_log("Info:". $firstname. $lastname. "\n", 3, $this->log);
             error_log("Info: login sucess!\n", 3, $this->log);
         } else {
             // fail

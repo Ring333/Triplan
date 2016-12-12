@@ -28,8 +28,8 @@
         $.ajax({
             url: "<?php echo $this->baseUrl('user/signout'); ?>",
             success: function(data){
-            alert(data);
-            location.reload();
+              alert(data);
+              location.reload();
             }
         });
     });
@@ -37,7 +37,10 @@
 </script>
 
 <?php
-    session_start();
+    if (!isset($_SESSION)){
+        session_start();
+    }
+
     if(!IsSet($_SESSION['loggedin']) or $_SESSION['loggedin'] != true)
     { ?>
     <div class="upper">

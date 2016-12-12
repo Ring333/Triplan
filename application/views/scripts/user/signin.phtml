@@ -9,7 +9,7 @@
          $('#signup').ajaxForm({
             success: function(data){
                 alert("Welcome, " + data + "!" );
-                window.location.replace('http://triplan.com');
+                window.location.replace('http://triplan.com/idea/create');
             },
             error: function(){
                 alert("Invalid email or password!");
@@ -22,8 +22,8 @@
 <br /><br />
 <body class="bg_main">
     <div class="container">
-        <form id="signup" method="post"> <!--use same css as signup form -->
 
+        <form id="signup" method="post"> <!--use same css as signup form -->
             <div class="header">
                 <h3>Please Sign In To Continue</h3>
                 <p>Please fill out this form</p>
@@ -42,8 +42,8 @@
                 <input id="submit" type="submit" value="SIGN IN"></input>
                 <a class="link" href="signup">No account? Sign up for free now!</a>
             </div>
-
         </form>
+
     </div>
 </body>
 ​

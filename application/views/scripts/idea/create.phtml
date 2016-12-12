@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if(!IsSet($_SESSION['loggedin']) or $_SESSION['loggedin'] != true)
     {
         header("location: http://triplan.com/user/signin");
