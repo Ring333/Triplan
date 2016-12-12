@@ -1,91 +1,92 @@
 <script type="text/javascript">
 
-onload=function(){
-                var lis = document.querySelectorAll("li");
-                for(var i = 0; i < lis.length; i++)
-                {
-                    lis[i].onclick = function ()
-                    {
-                        alert(this.firstChild.nextSibling.nextSibling.nextSibling.innerHTML);
-                    }
-                }
-            }
  $( function() {
+
       $('.rating').barrating({
         theme: 'css-stars',
         readonly: 'true'
       });
 });
+$( function() {
+      $('.round2').click(function(){
+      	alert($this->innerHTML);
+      });
+    } );
+function loadDay(evt,dnum)
+{
+	var i,tabcontent,tablinks;
+	tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    document.getElementById(dnum).style.display = "block";
+}
 </script>
 <body class="bg_main">
-<div class="block" id="bfirst">
-<div class="wblock">
-<ul id="idea_cal">
-<?
-for($i=$this->sdate,$c=0;
-	($i->getTimestamp())<($this->edate->getTimestamp());
-	$i->add(new DateInterval('P1D')),$c++) {
-?>
 
-<li>
-<div class="round">
-<div class="pad">
-<var><? echo "D".($c+1); ?></var>
-</div>
-</div>
-<var><? echo $i->format('Y-m-d'); ?></var><br>
-<var class="sd"><? 
-if ($c==0) { echo $this->source."->".$this->dest;} 
-else if($i->getTimestamp()+86400==$this->edate->getTimestamp()) {echo $this->dest."->".$this->source;}
-else {echo $this->dest;}
-?></var>
-</li>
 
-<?
-}
-?>
-</ul>
-</div>
-</div>
+<div class="block" id="bfirst"><div class="wblock"><ul id="idea_cal">
+	<?
+	for($i=$this->sdate,$c=0;
+		($i->getTimestamp())<($this->edate->getTimestamp());
+		$i->add(new DateInterval('P1D')),$c++) {
+	?>
+	<? array_push($this->idea, "") ?>
+	<a href="javascript:void(0)" class="tablinks" onclick="loadDay(event,'tab-<? echo $c+1; ?>')"><li>
+	<div class="round"><div class="pad"><var><? echo "D".($c+1); ?></var></div></div>
+	<var><? echo $i->format('Y-m-d'); ?></var><br>
+	<var class="sd"><? 
+	if ($c==0) { echo $this->source."->".$this->dest;} 
+	else if($i->getTimestamp()+86400==$this->edate->getTimestamp()) {echo $this->dest."->".$this->source;}
+	else {echo $this->dest;}
+	?></var>
+	</li></a>
+	<? } ?>
+</ul></div></div>
+
+
 
 <div class="block" id="bsecond">
 <div class="wblock">
-
-</div>
-</div>
-
-<div class="block" id="bthird">
-<div class="wblock">
-<ul id="idea_place">
-<?
-foreach ($this->xml->result as $result)
-{?>
-<li class="pl">
-<div class="picture">
-<img class="place" src="<? echo "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=".$result->photo->photo_reference."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ" ?>" alt="pic">
-</div>
-<div class="pinfo">
-<p class="name"><? echo $result->name."<br>";  ?></p>
-<select class="rating" autocomplete="off">
-  <? for ($i=1;$i<=5;$i++) { ?>
-  <option value="<? echo $i; ?>" <? if(floatval($result->rating)*10%3+3==$i){echo "selected=\"selected\"";} ?>><? echo $i; ?></option>
-  <? } ?>
-</select>
-<div class="des">
-<p class="descr">
-<?
- $descr=file_get_contents("https://maps.googleapis.com/maps/api/place/details/xml?placeid=".$result->place_id."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ"); 
- $reviews=simplexml_load_string($descr);
- echo $reviews->result->review[0]->text;
+<? $i=$this->sdate->sub(new DateInterval("P".($c+1)."D")); for($j=0;$j<=$c;$j++){ ?>
+<div id="tab-<? echo $j+1; ?>" class="tabcontent">
+<div class="date">
+<? echo "Day ".($j+1)."  "; 
+$i=$this->sdate;
+echo $i->add(new DateInterval("P1D"))->format('Y-m-d');
 ?>
-</p>
 </div>
 </div>
-</li>
-<?
-}
-?>
-</ul>
+<? } ?>
 </div>
 </div>
+
+
+
+<div class="block" id="bthird"><div class="wblock"><ul id="idea_place">
+	<? foreach ($this->xml->result as $result) { ?>
+	<li class="pl">
+	<div class="picture">
+	<img class="place" src="<? echo "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=".$result->photo->photo_reference."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ" ?>" alt="pic">
+	</div>
+	<div class="pinfo">
+	<a href="javascript:void(0)"><div class="round2">+</div></a>
+	<p class="name"><? echo $result->name."<br>";  ?></p>
+	<select class="rating" autocomplete="off">
+	  <? for ($i=1;$i<=5;$i++) { ?>
+	  <option value="<? echo $i; ?>" <? if(floatval($result->rating)*10%3+3==$i){echo "selected=\"selected\"";} ?>><? echo $i; ?></option>
+	  <? } ?>
+	</select>
+	<div class="des"><p class="descr">
+	<?
+	 $descr=file_get_contents("https://maps.googleapis.com/maps/api/place/details/xml?placeid=".$result->place_id."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ"); 
+	 $reviews=simplexml_load_string($descr);
+	 echo $reviews->result->review[0]->text;
+	?>
+	</p></div>
+	</div>
+	</li>
+	<? } ?>
+</ul></div></div>
+
 </body>
