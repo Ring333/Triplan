@@ -16,6 +16,9 @@
           <actionMethod actionName="signup"/>
           <actionMethod actionName="signin"/>
           <actionMethod actionName="signout"/>
+          <actionMethod actionName="viewinfo"/>
+          <actionMethod actionName="editinfo"/>
+          <actionMethod actionName="changepwd"/>
         </controllerFile>
         <controllerFile controllerName="Idea">
           <actionMethod actionName="index"/>
@@ -72,6 +75,15 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="signout"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="viewinfo"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="editinfo"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="User">
+            <viewScriptFile forActionName="changepwd"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

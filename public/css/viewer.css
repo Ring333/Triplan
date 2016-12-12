@@ -7,7 +7,7 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-  margin: 0;
+  margin: auto;
   padding: 0;
   border: 0;
   outline: 0;
@@ -73,14 +73,20 @@ body {
 }
 
 .home_container {
-    width: 32%;
-    height: 30%;
-    margin: 6% auto;
+    width: 50%;
+    height: auto;
+    margin: 4% auto;
 }
 
 .create_container {
     width: 100%;
-    height: 30%;
+    height: auto;
+    margin: 4% auto;
+}
+
+.tab_container {
+    width: 100%;
+    height: auto;
     margin: 4% auto;
 }
 

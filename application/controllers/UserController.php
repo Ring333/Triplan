@@ -54,7 +54,29 @@ class UserController extends Zend_Controller_Action
         exit;
     }
 
+    public function viewinfoAction()
+    {
+        // action body
+    }
+
+    public function editinfoAction()
+    {
+        // action body
+    }
+
+    public function changepwdAction()
+    {
+        // action body
+    }
+
+
 }
+
+
+
+
+
+
 
 
 
