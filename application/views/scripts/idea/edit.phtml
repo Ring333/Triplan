@@ -10,14 +10,12 @@ onload=function(){
                     }
                 }
             }
-
-
  $( function() {
       $('.rating').barrating({
-        theme: 'css-stars'
+        theme: 'css-stars',
+        readonly: 'true'
       });
 });
-
 </script>
 <body class="bg_main">
 <div class="block" id="bfirst">
@@ -63,17 +61,25 @@ else {echo $this->dest;}
 foreach ($this->xml->result as $result)
 {?>
 <li class="pl">
-<?  echo  floatval($result->rating)*10.0%5+1; ?>
 <div class="picture">
 <img class="place" src="<? echo "https://maps.googleapis.com/maps/api/place/photo?maxwidth=200&photoreference=".$result->photo->photo_reference."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ" ?>" alt="pic">
 </div>
-<div class="descr">
+<div class="pinfo">
 <p class="name"><? echo $result->name."<br>";  ?></p>
-<select class="rating">
-  <? for ($i=0;$i<5;$i++){ ?>
-  <option value="<? echo $i+1; ?>" <? if($i+1==floatval($result->rating)*10.0%5+1) echo "selected=\"selected\""; ?> ><? echo $i+1; ?></option>
+<select class="rating" autocomplete="off">
+  <? for ($i=1;$i<=5;$i++) { ?>
+  <option value="<? echo $i; ?>" <? if(floatval($result->rating)*10%3+3==$i){echo "selected=\"selected\"";} ?>><? echo $i; ?></option>
   <? } ?>
 </select>
+<div class="des">
+<p class="descr">
+<?
+ $descr=file_get_contents("https://maps.googleapis.com/maps/api/place/details/xml?placeid=".$result->place_id."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ"); 
+ $reviews=simplexml_load_string($descr);
+ echo $reviews->result->review[0]->text;
+?>
+</p>
+</div>
 </div>
 </li>
 <?
@@ -82,5 +88,4 @@ foreach ($this->xml->result as $result)
 </ul>
 </div>
 </div>
-
 </body>

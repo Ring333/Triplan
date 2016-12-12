@@ -18,8 +18,8 @@
 #bfirst
 {
 	width:20%;
-	min-height: 100px;
-	max-height: 70%;
+	min-height: 50px;
+	max-height: 428px;
 
 }
 #bsecond
@@ -31,7 +31,7 @@
 #bthird
 {
 	min-height: 300px;
-	max-height: 85%;
+	max-height: 549px;
 	width:40%;
 }
 
@@ -132,15 +132,14 @@ img.place
 	border-radius: 13px;
 	box-shadow: 3px 3px 5px gray;
 }
-.descr
+.pinfo
 {
-	width:200px;
+	width:210px;
 	float:left;
 	padding-right:15px;
 	padding-left: 18px;
-	padding-top:4px;
 }
-.descr p
+.pinfo p
 {
 	
 	font-style: normal;
@@ -149,4 +148,14 @@ img.place
 {
 	font-weight: bold;
 	font-size: 16px;
+}
+.des
+{
+	padding-top: 4px;
+	height:87px;
+	overflow-y: hidden;
+}
+.descr
+{
+	color: #777;
 }
