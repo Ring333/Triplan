@@ -39,6 +39,13 @@ body {
     font-weight: 300;
 }
 
+#signup .header h4 {
+    color: #8f8f8f;
+    font-size: 14px;
+    font-weight: 300;
+    text-align: center;
+}
+
 #signup .sep {
     height: 1px;
     background: #e8e8e8;
