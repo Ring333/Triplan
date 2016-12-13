@@ -27,6 +27,21 @@ body {
     margin-bottom: 15px;
 }
 
+#signup .header h1 {
+    color: #333333;
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#signup .header h2 {
+    color: #8f8f8f;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 #signup .header h3 {
     color: #333333;
     font-size: 24px;
@@ -40,11 +55,10 @@ body {
     font-weight: 300;
 }
 
-#signup .header h4 {
-    color: #8f8f8f;
-    font-size: 20px;
-    font-weight: 300;
-    text-align: center;
+#signup .create
+{
+    padding: 3px;
+    font-size: 18px;
 }
 
 #signup .sep {
@@ -162,10 +176,6 @@ input:-moz-placeholder {
         from(#a4b0cb),
         to(#b9c5dd));
 }
-.date
-{
-    clear:right;
-}
 
 #signup .link {
     display:block;
@@ -174,3 +184,7 @@ input:-moz-placeholder {
     padding: 15px;
 }
 
+.date
+{
+    clear:right;
+}

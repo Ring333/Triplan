@@ -29,7 +29,6 @@
             url: "<?php echo $this->baseUrl('user/signout'); ?>",
             success: function(data){
               alert(data);
-              swal(data);
               location.reload();
             }
         });
