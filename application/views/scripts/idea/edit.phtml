@@ -28,12 +28,14 @@ function addItem(event)
 {
 	var dayid=document.getElementById("daynum").innerHTML;
 	var container=document.getElementById(dayid).getElementsByClassName("sortable")[0];
-	var node = document.createElement("li");
+	var n=document.createElement("li");
+	var node = document.createElement("a");
 	var text= event.target.parentNode.parentNode.getElementsByClassName("name")[0].innerHTML;
 	var len=text.length-4;
 	var textnode = document.createTextNode(text.substring(0,len)); 
 	node.appendChild(textnode); 
-	container.appendChild(node);
+	n.appendChild(node);
+	container.appendChild(n);
 }
 
 </script>
@@ -43,6 +45,7 @@ function addItem(event)
 <? $d=0; echo "<p id=\"daynum\">tab-1</p>"; ?>
 
 <div id="forsave">
+<div id="alsoforsave">
 <div class="block" id="bfirst"><div class="wblock"><ul id="idea_cal">
 	<?
 	for($i=$this->sdate,$c=0;
@@ -61,6 +64,7 @@ function addItem(event)
 	</li></a>
 	<? } ?>
 </ul></div></div>
+</div>
 <a id="save">save</a>
 </div>
 
