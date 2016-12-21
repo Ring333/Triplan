@@ -75,7 +75,8 @@ body {
 .home_container {
     width: 50%;
     height: auto;
-    margin: 4% auto;
+    margin: 6% auto;
+    text-align: center;
 }
 
 .create_container {
