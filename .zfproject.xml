@@ -24,6 +24,7 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="create"/>
           <actionMethod actionName="edit"/>
+          <actionMethod actionName="save"/>
         </controllerFile>
         <controllerFile controllerName="Program">
           <actionMethod actionName="index"/>
@@ -84,6 +85,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="User">
             <viewScriptFile forActionName="changepwd"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Idea">
+            <viewScriptFile forActionName="save"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>

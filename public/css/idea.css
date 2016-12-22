@@ -226,7 +226,7 @@ img.place
 {
 	padding-top: 4px;
 	height:87px;
-	overflow-y: hidden;
+	overflow-y: scroll;
 }
 .descr
 {
@@ -260,4 +260,8 @@ img.place
 ul
 {
 	background-color: rgba(255,255,255,0.8);
+}
+#sdate,#edate,#sr,#dest
+{
+	display:none;
 }

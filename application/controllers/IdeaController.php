@@ -15,13 +15,18 @@ class IdeaController extends Zend_Controller_Action
 
     public function createAction()
     {
-
     }
 
     public function editAction()
     {
         
         $request = $this->getRequest();
+        if ($this->getRequest()->isPost()) {
+            $idea = new Application_Model_IdeaMapper();
+            $idea->idea_save();
+            exit;
+        }
+        else{
         if ($request->getParam("new")=="true")
         {
             $this->view->idea=array();
@@ -38,11 +43,21 @@ class IdeaController extends Zend_Controller_Action
         $getPoiInfo="https://maps.googleapis.com/maps/api/place/textsearch/xml?query=point+of+interests+in+".$replace."&key=AIzaSyD7q2AX3EtCIPd9i1ITISdayG8tQhjMXaQ";
         $poiInfo=file_get_contents($getPoiInfo);
         $this->view->xml=simplexml_load_string($poiInfo) or die ("sorry we cannot find this place");
+        }
+    }
+
+    public function saveAction()
+    {
+        // action body
+
+
         
     }
 
 
 }
+
+
 
 
 

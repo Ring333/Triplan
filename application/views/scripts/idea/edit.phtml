@@ -11,6 +11,7 @@
       $('.round2').click(addItem);
       $( ".sortable" ).sortable();
       $( ".sortable" ).disableSelection();
+      $("#save").click(saveIdea);
   }
 );
 
@@ -37,11 +38,17 @@ function addItem(event)
 	n.appendChild(node);
 	container.appendChild(n);
 }
+function saveIdea()
+{
+	$.post("http://triplan.com/idea/edit",{source:$('#sr').text(),dest:$('#dest').text(),sdate:$('#sdate').text(),edate:$('#edate').text()});
+}
 
 </script>
-
+<var id="sdate"><? echo $this->sdate->format('Y-m-d'); ?></var>
+<var id="edate"><? echo $this->sdate->format('Y-m-d'); ?></var>
+<var id="sr"><? echo $this->source; ?></var>
+<var id="dest"><? echo $this->dest; ?></var>
 <body class="bg_main">
-
 <? $d=0; echo "<p id=\"daynum\">tab-1</p>"; ?>
 
 <div id="forsave">
