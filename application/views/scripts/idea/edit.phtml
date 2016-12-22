@@ -1,4 +1,4 @@
-
+<? session_start(); ?>
 <script type="text/javascript">
 
  $(
@@ -40,17 +40,46 @@ function addItem(event)
 }
 function saveIdea()
 {
-	$.post("http://triplan.com/idea/edit",{source:$('#sr').text(),dest:$('#dest').text(),sdate:$('#sdate').text(),edate:$('#edate').text()});
+
+	$.post("http://triplan.com/idea/edit",{title:$('#title').text(),source:$('#sr').text(),dest:$('#dest').text(),sdate:$('#sdate').text(),edate:$('#edate').text(),owner:$('#owner').text(),
+	day01:$('#tab-1 ul').html(),
+	day02:$('#tab-2 ul').html(),
+	day03:$('#tab-3 ul').html(),
+	day04:$('#tab-4 ul').html(),
+	day05:$('#tab-5 ul').html(),
+	day06:$('#tab-6 ul').html(),
+	day07:$('#tab-7 ul').html(),
+	day08:$('#tab-8 ul').html(),
+	day09:$('#tab-9 ul').html(),
+	day10:$('#tab-10 ul').html(),
+	day11:$('#tab-11 ul').html(),
+	day12:$('#tab-12 ul').html(),
+	day13:$('#tab-13 ul').html(),
+	day14:$('#tab-14 ul').html(),
+	day15:$('#tab-15 ul').html(),
+	day16:$('#tab-16 ul').html(),
+	day17:$('#tab-17 ul').html(),
+	day18:$('#tab-18 ul').html(),
+	day19:$('#tab-19 ul').html(),
+	day20:$('#tab-20 ul').html()
+	},function(data){alert("succeed");$('#id').text(data);});
+
 }
 
 </script>
+
+
 <var id="sdate"><? echo $this->sdate->format('Y-m-d'); ?></var>
-<var id="edate"><? echo $this->sdate->format('Y-m-d'); ?></var>
+<var id="edate"><? echo $this->edate->format('Y-m-d'); ?></var>
 <var id="sr"><? echo $this->source; ?></var>
 <var id="dest"><? echo $this->dest; ?></var>
+<var id="owner"><? echo $_SESSION['user_id'] ?></var>
+<var id="id"></var>
+<div id="title">
+<var><? echo $this->title; ?></var>
+</div>
 <body class="bg_main">
 <? $d=0; echo "<p id=\"daynum\">tab-1</p>"; ?>
-
 <div id="forsave">
 <div id="alsoforsave">
 <div class="block" id="bfirst"><div class="wblock"><ul id="idea_cal">
@@ -59,7 +88,6 @@ function saveIdea()
 		($i->getTimestamp())<($this->edate->getTimestamp());
 		$i->add(new DateInterval('P1D')),$c++) {
 	?>
-	<? array_push($this->idea, "") ?>
 	<a href="javascript:void(0)" class="tablinks" onclick="loadDay(event,'tab-<? echo $c+1; ?>')"><li>
 	<div class="round"><div class="pad"><var><? echo "D".($c+1); ?></var></div></div>
 	<var><? echo $i->format('Y-m-d'); ?></var><br>
@@ -79,7 +107,9 @@ function saveIdea()
 
 
 <div class="block" id="bsecond">
+
 <div class="wblock">
+
 <? $i=$this->sdate->sub(new DateInterval("P".($c+1)."D")); for($j=0;$j<=$c;$j++){ ?>
 <div id="tab-<? echo $j+1; ?>" class="tabcontent">
 <div class="date">
@@ -96,9 +126,6 @@ echo $i->add(new DateInterval("P1D"))->format('Y-m-d');
 <? } ?>
 </div>
 </div>
-
-
-
 
 
 <div class="block" id="bthird"><div class="wblock"><ul id="idea_place">

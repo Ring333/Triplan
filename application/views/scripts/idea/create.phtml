@@ -31,7 +31,7 @@
       }
       else
       {
-      window.location.href="http://triplan.com/idea/edit?sdate="+ $("#sdate").val() + "&edate=" + $("#edate").val()+ "&source=" + $("#source").val() + "&dest=" + $("#dest").val() + "&new=true";
+      window.location.href="http://triplan.com/idea/edit?title="+$("#input").val()+"&sdate="+ $("#input1").val() + "&edate=" + $("#input2").val()+ "&source=" + $("#input3").val() + "&dest=" + $("#input4").val();
       }
     }
 
@@ -48,15 +48,16 @@
   <div class="header">
       <h3>Create a Travel Idea</h3>
   </div>
-
+  <label class="caption">Title</label>
+  <input type="text" id="input"/>
 	<label class="caption">Start Date</label>
-	<input type="text" class="datepicker" id="sdate"/>
+	<input type="text" class="datepicker" id="input1"/>
 	<label class="caption">End Date</label>
-	<input type="text" class="datepicker"  id="edate"/>
+	<input type="text" class="datepicker" id="input2"/>
 	<label class="caption">Departure</label>
-	<input type="text" id="source"/>
+	<input type="text" id="input3"/>
 	<label class="caption">Destination</label>
-	<input type="text" id="dest"/>
+	<input type="text" id="input4"/>
 	<input id="cr_idea" type="button" value="Create" />
 
 </div>

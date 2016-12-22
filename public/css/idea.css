@@ -2,12 +2,13 @@
 {
 	margin-left: auto;
 	margin-right: auto;
-	width:50%;
+	width:62%;
 }
 
 .block
 {
 	margin:20px;
+	margin-top: 2px;
 	height:auto;
 	background-color: rgba(230,230,230,0.4);
 	float:left;
@@ -118,6 +119,7 @@ label
 	width:20%;
 	float: left;
 	margin: 20px;
+	margin-top:2px;
 =======
 
 >>>>>>> origin/master
@@ -182,9 +184,9 @@ var
 ::-webkit-scrollbar {
 	display:none;
 }
-.datepicker,#source,#dest
+#input1,#input2,#input3,#input4,#input
 {
-	width:72px;
+	width:70px;
 }
 .sd
 {
@@ -253,7 +255,7 @@ img.place
 	padding-left: 30px;
 	color:rgba(51,92,174,0.7);
 }
-#daynum
+#daynum,#uid
 {
 	display: none;
 }
@@ -261,7 +263,18 @@ ul
 {
 	background-color: rgba(255,255,255,0.8);
 }
-#sdate,#edate,#sr,#dest
+#sdate,#edate,#sr,#dest,#owner,#id
 {
 	display:none;
+}
+#title
+{
+	width:100%;
+	padding-left:10px;
+}
+#title var
+{
+	font-size: 20px;
+	color: rgba(51,92,174,0.7);
+	text-shadow: -2px 0px 2px white;
 }

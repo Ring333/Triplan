@@ -3,9 +3,9 @@
 class Application_Model_UserMapper
 {
 
-    protected $servername = "localhost";
+    protected $servername = "45.78.32.225";
     protected $username = "root";
-    protected $password = "";
+    protected $password = "Wf940701";
     protected $dbname = "triplan";
 
     protected $log = "/var/tmp/triplan.log";
